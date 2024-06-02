@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Katharina Trinley - Artist Portfolio</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #333;
+            color: white;
+            padding: 1em 0;
+            text-align: center;
+        }
+        section {
+            padding: 2em;
+            margin: 1em auto;
+            max-width: 800px;
+        }
+        h2 {
+            border-bottom: 2px solid #333;
+            padding-bottom: 0.5em;
+        }
+        .portfolio img {
+            width: 100%;
+            height: auto;
+            margin-bottom: 1em;
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 1em 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+        a {
+            color: #333;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Katharina Trinley - Artist Portfolio</h1>
+    </header>
+
+    <section id="about">
+        <h2>About Me</h2>
+        <p>Hello! I am Katharina Trinley, a self-taught artist specializing in oil paintings. Art has always been my passion, and I love to express my creativity through vibrant and dynamic compositions. My journey as an artist is a continual exploration of color, form, and texture.</p>
+    </section>
+
+    <section id="portfolio">
+        <h2>Portfolio</h2>
+        <div class="portfolio">
+            <img src="https://via.placeholder.com/800x600" alt="Oil Painting 1">
+            <img src="https://via.placeholder.com/800x600" alt="Oil Painting 2">
+            <img src="https://via.placeholder.com/800x600" alt="Oil Painting 3">
+            <!-- Add more images as needed -->
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2>Contact</h2>
+        <p>You can reach me at: <a href="mailto:katharinatrinley@icloud.com">katharinatrinley@icloud.com</a></p>
+        <p>Connect with me on LinkedIn: <a href="https://www.linkedin.com/in/katharina-trinley-1189121a1/">Katharina Trinley</a></p>
+    </section>
+
+    <footer>
+        &copy; 2024 Katharina Trinley
+    </footer>
+</body>
+</html>
