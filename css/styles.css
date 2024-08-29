@@ -43,3 +43,13 @@ body {
     margin: 5px 0;
     color: #666;
 }
+
+/* Style for the links */
+.card-info a {
+    color: #888;  /* This sets the link color to grey */
+    text-decoration: none; /* Removes underline from the links */
+}
+
+.card-info a:hover {
+    color: #555;  /* Darker grey on hover */
+}
