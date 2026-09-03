@@ -44,20 +44,22 @@
 
     /* ── Page layout ─────────────────────────────────────── */
     .page {
-      display: grid;
-      grid-template-columns: 1fr 560px 180px;
+      display: flex;
+      justify-content: center;
       min-height: 100vh;
-      max-width: 1100px;
-      margin: 0 auto;
       padding: 0 2rem;
     }
-    .spacer { /* left empty column for balance */ }
+    .spacer { display: none; }
     .main {
-      padding: 4rem 3rem 6rem 2rem;
+      width: 660px;
+      flex-shrink: 0;
+      padding: 4rem 2rem 6rem;
     }
     .sidebar {
+      width: 160px;
+      flex-shrink: 0;
       padding-top: 4rem;
-      padding-left: 2rem;
+      padding-left: 2.5rem;
     }
     .sidebar-inner {
       position: sticky;
@@ -179,6 +181,51 @@
       text-transform: uppercase;
     }
 
+    /* ── Timeline ────────────────────────────────────────── */
+    .timeline {
+      list-style: none;
+      position: relative;
+      padding-left: 1.5rem;
+    }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0.4em;
+      bottom: 0.4em;
+      width: 1px;
+      background: var(--border);
+    }
+    .timeline li {
+      position: relative;
+      padding: 0 0 1.4rem 1.5rem;
+      font-size: 0.9em;
+    }
+    .timeline li:last-child {
+      padding-bottom: 0;
+    }
+    .timeline li::before {
+      content: '';
+      position: absolute;
+      left: -0.2rem;
+      top: 0.45em;
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--text);
+    }
+    .tl-date {
+      font-size: 0.78em;
+      color: var(--muted);
+      letter-spacing: 0.04em;
+      display: block;
+      margin-bottom: 0.1rem;
+    }
+    .tl-event {
+      color: var(--text);
+      line-height: 1.4;
+    }
+
     /* ── Footer ──────────────────────────────────────────── */
     footer {
       margin-top: 2rem;
@@ -235,9 +282,9 @@
         Hi, I'm Katharina [kataˈʁiːna], a PhD student at the <a href="https://tai-hamburg.github.io/team/" target="_blank">Trustworthy AI Lab</a>
         at the University of Hamburg, supervised by <a href="https://anne-lauscher.de/" target="_blank">Anne Lauscher</a>
         and <a href="https://www.inf.uni-hamburg.de/en/inst/ab/wtm/people/lee.html" target="_blank">Jae Hee Lee</a>.
-        I research mechanistic interpretability, bias mitigation, multilinguality, and multi-agent systems, with a focus on ethical alignment. 
+        I research mechanistic interpretability, bias mitigation, multilinguality, and multi-agent systems, with a focus on ethical alignment.
         The goal is language models that are fairer and more trustworthy across languages and cultures.
-        Send me a message if you are interested in collaborating. 
+        Send me a message if you are interested in collaborating.
         You can also talk to me about hiking, painting and cats.
       </p>
     </section>
@@ -259,21 +306,67 @@
         </li>
         <li>
           <span class="pub-title">
-            <a href="https://aclanthology.org/2025.ijcnlp-long.156/" target="_blank">Language Arithmetics: Towards Systematic Language Neuron Identification and Manipulation</a>
-          </span>
-          <span class="pub-meta">D. Gurgurov, <strong>K. Trinley</strong>, Y. Al Ghussin, T. Baeumel, J. van Genabith, S. Ostermann &middot; Proceedings of IJCNLP-AACL 2025</span>
-        </li>
-        <li>
-          <span class="pub-title">
             <a href="https://aclanthology.org/2025.globalnlp-1.18.pdf" target="_blank">What language(s) does aya-23 think in? How multilinguality affects internal language representations</a>
           </span>
           <span class="pub-meta"><strong>K. Trinley</strong>, T. Nakai, T. Baeumel, T. Anikina &middot; GlobalNLP@RANLP 2025</span>
         </li>
         <li>
           <span class="pub-title">
+            <a href="https://aclanthology.org/2025.ijcnlp-long.156/" target="_blank">Language Arithmetics: Towards Systematic Language Neuron Identification and Manipulation</a>
+          </span>
+          <span class="pub-meta">D. Gurgurov, <strong>K. Trinley</strong>, Y. Al Ghussin, T. Baeumel, J. van Genabith, S. Ostermann &middot; Proceedings of IJCNLP-AACL 2025</span>
+        </li>
+        <li>
+          <span class="pub-title">
             <a href="https://aclanthology.org/2025.findings-ijcnlp.17/" target="_blank">Multilingual Political Views of Large Language Models: Identification and Steering</a>
           </span>
           <span class="pub-meta">D. Gurgurov, <strong>K. Trinley</strong>, I. Vykopal, J. van Genabith, S. Ostermann, R. Zamparelli &middot; Findings of IJCNLP-AACL 2025</span>
+        </li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Timeline</h2>
+      <ul class="timeline">
+        <li>
+          <span class="tl-date">3 Sep 2026</span>
+          <span class="tl-event">Our paper <em>The Latin Substrate</em> got accepted to BlackBoxNLP 2026!</span>
+        </li>
+        <li>
+          <span class="tl-date">15 Aug 2026</span>
+          <span class="tl-event">Moved to Hamburg to start my PhD at the Trustworthy AI Lab at University of Hamburg with Anne Lauscher and Jae Hee Lee. I am very excited for this new chapter!</span>
+        </li>
+        <li>
+          <span class="tl-date">15-26 Jun 2026</span>
+          <span class="tl-event">Had a great time and met amazing new friends at the Machine Learning Summer School 2026 at Columbia University, in New York!</span>
+        </li>
+        <li>
+          <span class="tl-date">2025</span>
+          <span class="tl-event">Two papers I started writing with Daniil in Trento got accepted to IJCNLP-AACL 2025: <em>Language Arithmetics</em> (main) and <em>Multilingual Political Views</em> (findings)</span>
+        </li>
+        <li>
+          <span class="tl-date">2025</span>
+          <span class="tl-event">A paper written with Toshiki got accepted to GlobalNLP@RANLP 2025: <em>What Language(s) Does Aya-23 Think In?</em></span>
+        </li>
+        <li>
+          <span class="tl-date">2025</span>
+          <span class="tl-event">A research seminar paper written with Nellia was accepted to ACL Student Research Workshop 2025</span>
+        </li>
+        <li>
+          <span class="tl-date">Feb – Aug 2025</span>
+          <span class="tl-event">Had the time of my life during my exchange semester at University of Trento, Italy (Erasmus+)</span>
+        </li>
+        <li>
+          <span class="tl-date">Oct 2024 – Jul 2025</span>
+          <span class="tl-event">Worked as a Junior Researcher at DFKI on energy-efficient AI for data centers.</span>
+        </li>
+        <li>
+          <span class="tl-date">Oct 2023</span>
+          <span class="tl-event">Started M.Sc. in Language Science &amp; Technology at Saarland University</span>
+        </li>
+        <li>
+          <span class="tl-date">Oct 2021 – Oct 2023</span>
+          <span class="tl-event">Worked as a Research Assistant on psycholinguistics research with Margarita Rhyzova and Vera Demberg at Saarland University</span>
         </li>
       </ul>
     </section>
@@ -301,10 +394,6 @@
         <li>
           <span class="contact-label">LinkedIn</span>
           <a href="https://www.linkedin.com/in/katharina-trinley-1189121a1/" target="_blank">LinkedIn</a>
-        </li>
-        <li>
-          <span class="contact-label">Twitter</span>
-          <a href="https://twitter.com/Kat_Trinley" target="_blank">@Kat_Trinley</a>
         </li>
       </ul>
     </div>
