@@ -41,27 +41,29 @@
     a:hover {
       text-decoration-color: var(--text);
     }
+
     /* ── Page layout ─────────────────────────────────────── */
     .page {
-      display: flex;
+      display: grid;
+      grid-template-columns: 1fr 560px 180px;
       min-height: 100vh;
-      max-width: 840px;
+      max-width: 1100px;
       margin: 0 auto;
       padding: 0 2rem;
     }
+    .spacer { /* left empty column for balance */ }
     .main {
-      flex: 1;
-      padding: 4rem 3rem 6rem 0;
+      padding: 4rem 3rem 6rem 2rem;
     }
     .sidebar {
-      width: 180px;
-      flex-shrink: 0;
       padding-top: 4rem;
+      padding-left: 2rem;
     }
     .sidebar-inner {
       position: sticky;
       top: 3rem;
     }
+
     /* ── Header ─────────────────────────────────────────── */
     .header {
       display: flex;
@@ -69,10 +71,16 @@
       gap: 2rem;
       margin-bottom: 3.5rem;
     }
-    .photo-placeholder {
+    .photo-wrap {
       flex-shrink: 0;
-      width: 110px;
-      height: 110px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.4rem;
+    }
+    .photo-placeholder {
+      width: 160px;
+      height: 160px;
       border-radius: 50%;
       background-color: #eee;
       border: 1px solid #ccc;
@@ -82,18 +90,23 @@
       justify-content: center;
       font-size: 0.75em;
       color: var(--muted);
-      letter-spacing: 0.02em;
     }
     .photo-placeholder img {
       width: 100%;
       height: 100%;
       object-fit: cover;
     }
+    .photo-caption {
+      font-size: 0.72em;
+      color: var(--muted);
+      letter-spacing: 0.02em;
+    }
     .header-text h1 {
       font-size: 1.55rem;
       font-weight: normal;
       letter-spacing: -0.01em;
     }
+
     /* ── Sections ────────────────────────────────────────── */
     section {
       margin-bottom: 3rem;
@@ -108,11 +121,13 @@
       padding-bottom: 0.5rem;
       border-bottom: 1px solid var(--border);
     }
+
     /* ── Bio ─────────────────────────────────────────────── */
     .bio p {
       font-size: 0.95em;
       color: var(--text);
     }
+
     /* ── Publications ────────────────────────────────────── */
     .pub-list {
       list-style: none;
@@ -122,12 +137,8 @@
       border-bottom: 1px solid var(--border);
       font-size: 0.9em;
     }
-    .pub-list li:first-child {
-      padding-top: 0;
-    }
-    .pub-list li:last-child {
-      border-bottom: none;
-    }
+    .pub-list li:first-child { padding-top: 0; }
+    .pub-list li:last-child { border-bottom: none; }
     .pub-title {
       font-style: italic;
       color: var(--text);
@@ -139,6 +150,7 @@
       font-size: 0.92em;
       line-height: 1.4;
     }
+
     /* ── Sidebar contact ─────────────────────────────────── */
     .sidebar h2 {
       font-size: 0.72em;
@@ -166,29 +178,30 @@
       letter-spacing: 0.06em;
       text-transform: uppercase;
     }
+
     /* ── Footer ──────────────────────────────────────────── */
     footer {
       margin-top: 2rem;
       font-size: 0.75em;
       color: #ccc;
     }
+
     /* ── Responsive ──────────────────────────────────────── */
-    @media (max-width: 600px) {
+    @media (max-width: 700px) {
       .page {
-        flex-direction: column;
+        grid-template-columns: 1fr;
         padding: 0 1.25rem;
       }
+      .spacer { display: none; }
       .main {
         padding: 2.5rem 0 2rem;
       }
       .sidebar {
-        width: 100%;
+        padding-left: 0;
         padding-top: 0;
         padding-bottom: 3rem;
       }
-      .sidebar-inner {
-        position: static;
-      }
+      .sidebar-inner { position: static; }
       .header {
         flex-direction: column;
         align-items: center;
@@ -199,27 +212,36 @@
 </head>
 <body>
 <div class="page">
+
+  <div class="spacer"></div>
+
   <!-- ── Main content ── -->
   <main class="main">
     <header class="header">
-      <div class="photo-placeholder">
-        <img src="norway_profilepic.jpeg" alt="Katharina Trinley" />
+      <div class="photo-wrap">
+        <div class="photo-placeholder">
+          <img src="norway_profilepic.jpeg" alt="Katharina Trinley" />
+        </div>
+        <span class="photo-caption">Tromsø, 2026</span>
       </div>
       <div class="header-text">
         <h1>Katharina Trinley</h1>
       </div>
     </header>
+
     <section class="bio">
       <h2>About</h2>
       <p>
         Hi, I'm Katharina [kataˈʁiːna], a PhD student at the <a href="https://tai-hamburg.github.io/team/" target="_blank">Trustworthy AI Lab</a>
         at the University of Hamburg, supervised by <a href="https://anne-lauscher.de/" target="_blank">Anne Lauscher</a>
         and <a href="https://www.inf.uni-hamburg.de/en/inst/ab/wtm/people/lee.html" target="_blank">Jae Hee Lee</a>.
-        I research mechanistic interpretability, bias mitigation, multilinguality, and multi-agent systems,
-        working toward language models that are fairer and more trustworthy across languages and cultures.
-        You can also talk to me about hiking, painting and petting cats.
+        I research mechanistic interpretability, bias mitigation, multilinguality, and multi-agent systems, with a focus on ethical alignment. 
+        The goal is language models that are fairer and more trustworthy across languages and cultures.
+        Send me a message if you are interested in collaborating. 
+        You can also talk to me about hiking, painting and cats.
       </p>
     </section>
+
     <section>
       <h2>Papers</h2>
       <ul class="pub-list">
@@ -237,15 +259,15 @@
         </li>
         <li>
           <span class="pub-title">
-            <a href="https://aclanthology.org/2025.globalnlp-1.18.pdf" target="_blank">What language(s) does aya-23 think in? How multilinguality affects internal language representations</a>
-          </span>
-          <span class="pub-meta"><strong>K. Trinley</strong>, T. Nakai, T. Baeumel, T. Anikina &middot; GlobalNLP@RANLP 2025</span>
-        </li>
-        <li>
-          <span class="pub-title">
             <a href="https://aclanthology.org/2025.ijcnlp-long.156/" target="_blank">Language Arithmetics: Towards Systematic Language Neuron Identification and Manipulation</a>
           </span>
           <span class="pub-meta">D. Gurgurov, <strong>K. Trinley</strong>, Y. Al Ghussin, T. Baeumel, J. van Genabith, S. Ostermann &middot; Proceedings of IJCNLP-AACL 2025</span>
+        </li>
+        <li>
+          <span class="pub-title">
+            <a href="https://aclanthology.org/2025.globalnlp-1.18.pdf" target="_blank">What language(s) does aya-23 think in? How multilinguality affects internal language representations</a>
+          </span>
+          <span class="pub-meta"><strong>K. Trinley</strong>, T. Nakai, T. Baeumel, T. Anikina &middot; GlobalNLP@RANLP 2025</span>
         </li>
         <li>
           <span class="pub-title">
@@ -255,8 +277,10 @@
         </li>
       </ul>
     </section>
+
     <footer>Updated August 2026</footer>
   </main>
+
   <!-- ── Sticky sidebar ── -->
   <aside class="sidebar">
     <div class="sidebar-inner">
@@ -278,9 +302,14 @@
           <span class="contact-label">LinkedIn</span>
           <a href="https://www.linkedin.com/in/katharina-trinley-1189121a1/" target="_blank">LinkedIn</a>
         </li>
+        <li>
+          <span class="contact-label">Twitter</span>
+          <a href="https://twitter.com/Kat_Trinley" target="_blank">@Kat_Trinley</a>
+        </li>
       </ul>
     </div>
   </aside>
+
 </div>
 </body>
 </html>
